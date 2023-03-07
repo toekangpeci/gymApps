@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="332f540c-f153-476c-be0a-355d183cec55">
+	<property name="ireport.zoom" value="1.771561000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="user" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     instruktur_gym.`id_instruktur` AS instruktur_gym_id_instruktur,
+     instruktur_gym.`nama_instruktur` AS instruktur_gym_nama_instruktur,
+     instruktur_gym.`usia` AS instruktur_gym_usia,
+     instruktur_gym.`gender` AS instruktur_gym_gender,
+     instruktur_gym.`alamat` AS instruktur_gym_alamat,
+     instruktur_gym.`no_telp` AS instruktur_gym_no_telp,
+     instruktur_gym.`email` AS instruktur_gym_email,
+     instruktur_gym.`tanggal_join` AS instruktur_gym_tanggal_join,
+     instruktur_gym.`aktif` AS instruktur_gym_aktif
+FROM
+     `instruktur_gym` instruktur_gym]]>
+	</queryString>
+	<field name="instruktur_gym_id_instruktur" class="java.lang.String"/>
+	<field name="instruktur_gym_nama_instruktur" class="java.lang.String"/>
+	<field name="instruktur_gym_usia" class="java.lang.Integer"/>
+	<field name="instruktur_gym_gender" class="java.lang.String"/>
+	<field name="instruktur_gym_alamat" class="java.lang.String"/>
+	<field name="instruktur_gym_no_telp" class="java.lang.String"/>
+	<field name="instruktur_gym_email" class="java.lang.String"/>
+	<field name="instruktur_gym_tanggal_join" class="java.sql.Date"/>
+	<field name="instruktur_gym_aktif" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="69" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="145" y="33" width="317" height="12"/>
+				<textElement>
+					<font fontName="Segoe UI" size="8"/>
+				</textElement>
+				<text><![CDATA[JL. Setu Cipayung, No. 54, , RT.2/RW.4, Cilangkap, Kec. Cipayung, Kota Jakarta Timur]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="99" y="33" width="46" height="12"/>
+				<textElement>
+					<font fontName="Segoe UI" size="8"/>
+				</textElement>
+				<text><![CDATA[ALAMAT ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d00374e6-4c97-4eb7-9540-0df8da5f9224" x="0" y="0" width="555" height="33"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI" size="20" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[SETU FITNESS CORNER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="87" y="45" width="375" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI" size="8"/>
+				</textElement>
+				<text><![CDATA[TELP  :  0812-1218-0989      -     WEBSITE  :  www.setu-fitness-corner.business.site]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="52" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" mode="Opaque" x="0" y="0" width="555" height="36" forecolor="#FFFFFF" backcolor="#153462"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CETAK SELURUH IDENTITAS TRAINER/ INSTRUKTUR]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement uuid="d89dd70b-7b06-43d4-858c-5d471f3c205c" x="0" y="34" width="555" height="1" forecolor="#153462"/>
+			</line>
+			<staticText>
+				<reportElement uuid="42be942c-6bf4-4d9e-81bf-c63937056798" x="0" y="0" width="51" height="34"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID	]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="310e9a45-90e5-4b8d-a610-559bf27c611a" x="51" y="0" width="87" height="34"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NAMA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="83d56ce5-e453-4af4-a381-856703c8e04a" x="138" y="0" width="36" height="34"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[USIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="38c77610-6d28-4a9a-bdab-9bee463cec3a" x="174" y="0" width="48" height="34"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[GENDER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4e846e81-2cd0-4972-8285-ca70a443a7e9" x="222" y="0" width="123" height="34"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ALAMAT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="db104a62-d8ed-4053-8cf8-c92c727d7112" x="345" y="0" width="69" height="34"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO. TELP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b7c14d7f-ffca-46aa-838b-7f0001019cd6" x="414" y="0" width="69" height="34"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[EMAIL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="febf533f-e8b1-4839-801e-19176e272e9b" x="483" y="0" width="69" height="34"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TANGGAL JOIN]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement uuid="8d0aff68-70c5-4e95-9486-1df1bc621502" x="0" y="0" width="51" height="20"/>
+				<textElement>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{instruktur_gym_id_instruktur}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b2360454-a73c-4b64-84ad-48f67521cb58" x="51" y="0" width="87" height="35"/>
+				<textElement>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{instruktur_gym_nama_instruktur}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="606f0c4a-9ab7-436d-941a-693cbd637a4d" x="138" y="0" width="36" height="20"/>
+				<textElement>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{instruktur_gym_usia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ede0b670-b450-4779-a7a7-779a78de3e71" x="174" y="0" width="48" height="20"/>
+				<textElement>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{instruktur_gym_gender}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8a2fb071-6fc4-4d80-a469-72cc37e12280" x="222" y="0" width="123" height="35"/>
+				<textElement>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{instruktur_gym_alamat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b9d7101b-e209-4fa1-9ade-f838c4055d12" x="345" y="0" width="69" height="20"/>
+				<textElement>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{instruktur_gym_no_telp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="baa0cff2-6f81-4600-aa38-9ce239923a82" x="414" y="0" width="69" height="20"/>
+				<textElement>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{instruktur_gym_email}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="2b889c85-d582-4ded-b7bf-512a662c27b5" x="483" y="0" width="69" height="20"/>
+				<textElement>
+					<paragraph leftIndent="5"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{instruktur_gym_tanggal_join}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="127" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="396" y="27" width="40" height="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jakarta, ]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="d1b01009-13a8-4e78-ae35-17ef0cf2da1b" x="436" y="27" width="116" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="d89dd70b-7b06-43d4-858c-5d471f3c205c" x="0" y="13" width="555" height="1" forecolor="#153462"/>
+			</line>
+			<textField>
+				<reportElement uuid="94f83048-2c25-4414-ad90-4d614a3e9d08" x="414" y="95" width="138" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["(   "+$P{user}.toString()+"   )"]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="332f540c-f153-476c-be0a-355d183cec55">
+	<property name="ireport.zoom" value="1.771561000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="user" class="java.lang.String"/>
+	<parameter name="mulai" class="java.lang.String"/>
+	<parameter name="selesai" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     member_gym.`id_member` AS member_gym_id_member,
+     member_gym.`nama` AS member_gym_nama,
+     logs_checkin.`id_user` AS logs_checkin_id_user,
+     logs_checkin.`trainer` AS logs_checkin_trainer,
+     logs_checkin.`date` AS logs_checkin_date
+FROM
+     `member_gym` member_gym INNER JOIN `logs_checkin` logs_checkin ON member_gym.`id_member` = logs_checkin.`id_user`
+
+where logs_checkin.date between $P{mulai} and $P{selesai}]]>
+	</queryString>
+	<field name="member_gym_id_member" class="java.lang.String"/>
+	<field name="member_gym_nama" class="java.lang.String"/>
+	<field name="logs_checkin_id_user" class="java.lang.String"/>
+	<field name="logs_checkin_trainer" class="java.lang.String"/>
+	<field name="logs_checkin_date" class="java.sql.Timestamp"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="69" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="145" y="33" width="317" height="12"/>
+				<textElement>
+					<font fontName="Segoe UI" size="8"/>
+				</textElement>
+				<text><![CDATA[JL. Setu Cipayung, No. 54, , RT.2/RW.4, Cilangkap, Kec. Cipayung, Kota Jakarta Timur]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="99" y="33" width="46" height="12"/>
+				<textElement>
+					<font fontName="Segoe UI" size="8"/>
+				</textElement>
+				<text><![CDATA[ALAMAT ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d00374e6-4c97-4eb7-9540-0df8da5f9224" x="0" y="0" width="555" height="33"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI" size="20" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[SETU FITNESS CORNER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="87" y="45" width="375" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI" size="8"/>
+				</textElement>
+				<text><![CDATA[TELP  :  0812-1218-0989      -     WEBSITE  :  www.setu-fitness-corner.business.site]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="91" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" mode="Opaque" x="0" y="0" width="555" height="36" forecolor="#FFFFFF" backcolor="#153462"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CETAK LAPORAN CHECK IN GYM PER-PERIODE]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="5f8e19ee-25a4-4611-a01c-232704512ccd" mode="Opaque" x="0" y="34" width="555" height="42" forecolor="#153462"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="230" y="47" width="73" height="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sampai Dengan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="45" y="47" width="47" height="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Mulai]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="0db2875e-52aa-49a9-ad14-73d5a4df7744" x="92" y="47" width="113" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{mulai}.toString()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0b2af852-7271-47e1-9dd8-8b66c18fbab0" x="303" y="47" width="133" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{selesai}.toString()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="39" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="c2728b93-20cd-4d21-a795-9098fd3b9749" x="0" y="0" width="138" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[ID MEMBER]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="d89dd70b-7b06-43d4-858c-5d471f3c205c" x="0" y="34" width="555" height="1" forecolor="#153462"/>
+			</line>
+			<staticText>
+				<reportElement uuid="a3a5eaae-5c35-4d28-8a6b-77cce1ef5852" x="138" y="0" width="138" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[NAMA MEMBER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5d206f6c-40a2-4aa7-b30a-cc0f0cb07324" x="276" y="0" width="138" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[SESI PRIVATE TRAINER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9e3fcd63-94db-4a30-8a9d-8630ef55a2e6" x="414" y="0" width="138" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[WAKTU CHECK-IN]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="37" splitType="Stretch">
+			<textField>
+				<reportElement uuid="42f1e73d-f609-4dde-be2f-158517a3b33b" x="0" y="0" width="138" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{logs_checkin_id_user}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a4e306b3-f27a-4d17-afdc-a2f57231ad4e" x="138" y="0" width="138" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{member_gym_nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="c7bbf184-f2ac-4ddd-bf87-969a529b2a2c" x="276" y="0" width="138" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{logs_checkin_trainer}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="50304ddf-aebe-4414-a688-060d1242331c" x="414" y="0" width="138" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{logs_checkin_date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="134" splitType="Stretch">
+			<textField>
+				<reportElement uuid="94f83048-2c25-4414-ad90-4d614a3e9d08" x="414" y="92" width="138" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["(   "+$P{user}.toString()+"   )"]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="d1b01009-13a8-4e78-ae35-17ef0cf2da1b" x="436" y="24" width="116" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="d89dd70b-7b06-43d4-858c-5d471f3c205c" x="0" y="10" width="555" height="1" forecolor="#153462"/>
+			</line>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="396" y="24" width="40" height="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jakarta, ]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

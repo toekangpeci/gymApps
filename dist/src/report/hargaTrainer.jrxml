@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="332f540c-f153-476c-be0a-355d183cec55">
+	<property name="ireport.zoom" value="1.771561000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="user" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     instruktur_harga.`id` AS instruktur_harga_id,
+     instruktur_harga.`harga` AS instruktur_harga_harga,
+     instruktur_harga.`date` AS instruktur_harga_date
+FROM
+     `instruktur_harga` instruktur_harga]]>
+	</queryString>
+	<field name="instruktur_harga_id" class="java.lang.Integer"/>
+	<field name="instruktur_harga_harga" class="java.lang.Long"/>
+	<field name="instruktur_harga_date" class="java.sql.Timestamp"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="69" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="145" y="33" width="317" height="12"/>
+				<textElement>
+					<font fontName="Segoe UI" size="8"/>
+				</textElement>
+				<text><![CDATA[JL. Setu Cipayung, No. 54, , RT.2/RW.4, Cilangkap, Kec. Cipayung, Kota Jakarta Timur]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="99" y="33" width="46" height="12"/>
+				<textElement>
+					<font fontName="Segoe UI" size="8"/>
+				</textElement>
+				<text><![CDATA[ALAMAT ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d00374e6-4c97-4eb7-9540-0df8da5f9224" x="0" y="0" width="555" height="33"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI" size="20" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[SETU FITNESS CORNER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="87" y="45" width="375" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI" size="8"/>
+				</textElement>
+				<text><![CDATA[TELP  :  0812-1218-0989      -     WEBSITE  :  www.setu-fitness-corner.business.site]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="52" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" mode="Opaque" x="0" y="0" width="555" height="36" forecolor="#FFFFFF" backcolor="#153462"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CETAK LAPORAN PERUBAHAN HARGA PERSONAL TRAINER]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="47" splitType="Stretch">
+			<line>
+				<reportElement uuid="d89dd70b-7b06-43d4-858c-5d471f3c205c" x="0" y="34" width="555" height="1" forecolor="#153462"/>
+			</line>
+			<staticText>
+				<reportElement uuid="a063c9c3-64ac-4993-8b08-13cff7db048a" x="60" y="0" width="71" height="20"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="83f7fcad-e47b-4c5b-a8db-c7490f64fdfc" x="316" y="0" width="120" height="20"/>
+				<textElement textAlignment="Right">
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[HARGA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8e038a22-7716-417e-aa94-af661e29c852" x="131" y="0" width="185" height="20"/>
+				<textElement>
+					<font isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[TANGGAL PERUBAHAN HARGA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement uuid="0e2250bd-9d55-486a-98ae-9bb5cc4629bc" x="60" y="0" width="71" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{instruktur_harga_id}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement uuid="c8f53b41-a290-4353-99f3-d4f01397d179" x="316" y="0" width="120" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Rp. "+$F{instruktur_harga_harga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="01488472-60f9-4f74-a071-c1e11396b327" x="131" y="0" width="185" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{instruktur_harga_date}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="115" splitType="Stretch">
+			<line>
+				<reportElement uuid="d89dd70b-7b06-43d4-858c-5d471f3c205c" x="3" y="13" width="555" height="1" forecolor="#153462"/>
+			</line>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="d1b01009-13a8-4e78-ae35-17ef0cf2da1b" x="439" y="27" width="116" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="94f83048-2c25-4414-ad90-4d614a3e9d08" x="417" y="95" width="138" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["(   "+$P{user}.toString()+"   )"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="399" y="27" width="40" height="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jakarta, ]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

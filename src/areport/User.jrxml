@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="332f540c-f153-476c-be0a-355d183cec55">
+	<property name="ireport.zoom" value="1.771561000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="user" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     user.`id_user` AS user_id_user,
+     user.`nama_user` AS user_nama_user,
+     user.`password_user` AS user_password_user,
+     user.`alamat` AS user_alamat,
+     user.`no_telp` AS user_no_telp,
+     user.`email` AS user_email,
+     user.`tipe_user` AS user_tipe_user
+FROM
+     `user` user]]>
+	</queryString>
+	<field name="user_id_user" class="java.lang.String"/>
+	<field name="user_nama_user" class="java.lang.String"/>
+	<field name="user_password_user" class="java.lang.String"/>
+	<field name="user_alamat" class="java.lang.String"/>
+	<field name="user_no_telp" class="java.lang.String"/>
+	<field name="user_email" class="java.lang.String"/>
+	<field name="user_tipe_user" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="69" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="145" y="33" width="317" height="12"/>
+				<textElement>
+					<font fontName="Segoe UI" size="8"/>
+				</textElement>
+				<text><![CDATA[JL. Setu Cipayung, No. 54, , RT.2/RW.4, Cilangkap, Kec. Cipayung, Kota Jakarta Timur]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="99" y="33" width="46" height="12"/>
+				<textElement>
+					<font fontName="Segoe UI" size="8"/>
+				</textElement>
+				<text><![CDATA[ALAMAT ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d00374e6-4c97-4eb7-9540-0df8da5f9224" x="0" y="0" width="555" height="33"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI" size="20" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[SETU FITNESS CORNER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="87" y="45" width="375" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI" size="8"/>
+				</textElement>
+				<text><![CDATA[TELP  :  0812-1218-0989      -     WEBSITE  :  www.setu-fitness-corner.business.site]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="52" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" mode="Opaque" x="0" y="0" width="555" height="36" forecolor="#FFFFFF" backcolor="#153462"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CETAK SELURUH IDENTITAS USER LOGIN]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="43" splitType="Stretch">
+			<line>
+				<reportElement uuid="d89dd70b-7b06-43d4-858c-5d471f3c205c" x="0" y="34" width="555" height="1" forecolor="#153462"/>
+			</line>
+			<staticText>
+				<reportElement uuid="13814cb5-9b97-4cf3-8c13-403627c5adf9" x="0" y="0" width="53" height="20"/>
+				<textElement/>
+				<text><![CDATA[ID USER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ac15c9e4-dcde-4f80-aac9-5b0d8f80d3db" x="53" y="0" width="131" height="20"/>
+				<textElement/>
+				<text><![CDATA[NAMA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3c0965cb-2142-4939-80d7-cc811666f137" x="184" y="0" width="153" height="20"/>
+				<textElement/>
+				<text><![CDATA[ALAMAT]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b234b2ee-7776-4e49-a084-c72ddc799556" x="337" y="0" width="82" height="20"/>
+				<textElement/>
+				<text><![CDATA[NO. TELP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2c14acf9-68c7-4ea5-a7c5-4be3e80babac" x="419" y="0" width="76" height="20"/>
+				<textElement/>
+				<text><![CDATA[EMAIL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4a8b8c9a-2059-4607-b166-d89059f7c703" x="495" y="0" width="57" height="20"/>
+				<textElement/>
+				<text><![CDATA[TIPE USER]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement uuid="9cdf58f3-731d-4f30-a2f9-1620c158b26f" x="0" y="0" width="53" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{user_id_user}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="37409f58-697b-49ce-80f1-69d104af7ccc" x="53" y="0" width="131" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{user_nama_user}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="eb6e1f4d-8791-4eaf-b2b7-01d76ed1c91a" x="184" y="0" width="153" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{user_alamat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d570b593-5b9f-419e-9a23-23b56578cc89" x="337" y="0" width="82" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{user_no_telp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3b3c307a-7c00-4258-a348-5247b073c4b2" x="419" y="0" width="76" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{user_email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="fc93af34-9d58-4528-b349-283cf8e6ca94" x="495" y="0" width="57" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{user_tipe_user}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="115" splitType="Stretch">
+			<line>
+				<reportElement uuid="d89dd70b-7b06-43d4-858c-5d471f3c205c" x="0" y="13" width="555" height="1" forecolor="#153462"/>
+			</line>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="d1b01009-13a8-4e78-ae35-17ef0cf2da1b" x="436" y="27" width="116" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="94f83048-2c25-4414-ad90-4d614a3e9d08" x="414" y="95" width="138" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["(   "+$P{user}.toString()+"   )"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="396" y="27" width="40" height="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jakarta, ]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

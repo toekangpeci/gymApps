@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="332f540c-f153-476c-be0a-355d183cec55">
+	<property name="ireport.zoom" value="1.610510000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="user" class="java.lang.String"/>
+	<parameter name="periode" class="java.lang.String"/>
+	<parameter name="tahun" class="java.lang.String"/>
+	<parameter name="member" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     member_gym.`id_member` AS member_gym_id_member,
+     member_gym.`nama` AS member_gym_nama,
+     member_gym.`no_telp` AS member_gym_no_telp,
+     member_gym.`email` AS member_gym_email,
+     logs_transaksi.`id_transaksi` AS logs_transaksi_id_transaksi,
+     logs_transaksi.`id_member` AS logs_transaksi_id_member,
+     logs_transaksi.`timestamp` AS logs_transaksi_timestamp,
+     logs_transaksi.`total` AS logs_transaksi_total
+FROM
+     `member_gym` member_gym INNER JOIN `logs_transaksi` logs_transaksi ON member_gym.`id_member` = logs_transaksi.`id_member`
+
+
+WHERE logs_transaksi.id_member=$P{member} and (month(logs_transaksi.timestamp)=$P{periode} and year(logs_transaksi.timestamp)=$P{tahun})]]>
+	</queryString>
+	<field name="member_gym_id_member" class="java.lang.String"/>
+	<field name="member_gym_nama" class="java.lang.String"/>
+	<field name="member_gym_no_telp" class="java.lang.String"/>
+	<field name="member_gym_email" class="java.lang.String"/>
+	<field name="logs_transaksi_id_transaksi" class="java.lang.String"/>
+	<field name="logs_transaksi_id_member" class="java.lang.String"/>
+	<field name="logs_transaksi_timestamp" class="java.sql.Timestamp"/>
+	<field name="logs_transaksi_total" class="java.lang.Long"/>
+	<variable name="logs_transaksi_total_1" class="java.lang.Long" calculation="Sum">
+		<variableExpression><![CDATA[$F{logs_transaksi_total}]]></variableExpression>
+	</variable>
+	<variable name="logs_transaksi_total_2" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{logs_transaksi_total}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="69" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="145" y="33" width="317" height="12"/>
+				<textElement>
+					<font fontName="Segoe UI" size="8"/>
+				</textElement>
+				<text><![CDATA[JL. Setu Cipayung, No. 54, , RT.2/RW.4, Cilangkap, Kec. Cipayung, Kota Jakarta Timur]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="99" y="33" width="46" height="12"/>
+				<textElement>
+					<font fontName="Segoe UI" size="8"/>
+				</textElement>
+				<text><![CDATA[ALAMAT ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d00374e6-4c97-4eb7-9540-0df8da5f9224" x="0" y="0" width="555" height="33"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI" size="20" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[SETU FITNESS CORNER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="87" y="45" width="375" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI" size="8"/>
+				</textElement>
+				<text><![CDATA[TELP  :  0812-1218-0989      -     WEBSITE  :  www.setu-fitness-corner.business.site]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="142" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="5f8e19ee-25a4-4611-a01c-232704512ccd" mode="Opaque" x="0" y="36" width="555" height="84" forecolor="#153462"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="11" y="49" width="87" height="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID MEMBER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="11" y="69" width="87" height="17"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NAMA MEMBER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="262" y="49" width="87" height="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO TELP]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="262" y="70" width="87" height="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EMAIL]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="972872bf-f971-4f2f-afa7-9d6216606fe1" x="98" y="69" width="152" height="17"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{member_gym_nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b9f3a63e-8b91-4b7a-bb3c-ac3f995a2d0b" x="395" y="50" width="152" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{member_gym_no_telp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1925158a-946e-41b5-9881-45b096800dfd" x="395" y="70" width="152" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{member_gym_email}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" mode="Opaque" x="0" y="0" width="555" height="36" forecolor="#FFFFFF" backcolor="#153462"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LAPORAN PENJUALAN PRODUK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="11" y="90" width="87" height="17"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PERIODE PEMBELIAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="262" y="90" width="87" height="17"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TAHUN]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="3e63dc44-a72f-47f3-831f-0a78a6a3d3a0" x="99" y="50" width="151" height="14"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{logs_transaksi_id_member}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMMM">
+				<reportElement uuid="e79c9f37-1fac-4d52-8be2-32fa7df84254" x="101" y="91" width="100" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{periode}]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy">
+				<reportElement uuid="9ffd3ef3-0059-49f5-8dbb-43cbe0907bd1" x="395" y="90" width="100" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{tahun}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="38" splitType="Stretch">
+			<line>
+				<reportElement uuid="d89dd70b-7b06-43d4-858c-5d471f3c205c" x="0" y="34" width="555" height="1" forecolor="#153462"/>
+			</line>
+			<staticText>
+				<reportElement uuid="ecbec4e5-cc09-4e40-b59d-8a97fd15ad9f" x="0" y="0" width="185" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID TRANSAKSI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8d048352-0428-44f6-bfea-e53c1b6ccff0" x="185" y="0" width="185" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[WAKTU PEMBELIAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="dbfe42e8-36ed-4bf4-8d8b-5a25168f798b" x="432" y="0" width="123" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL BELANJA]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement uuid="5e462057-d0cd-45a4-b09b-ec9b0fd73565" x="0" y="0" width="185" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{logs_transaksi_id_transaksi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d3c82e6d-0691-4c1e-aae9-68ea5fb76918" x="185" y="0" width="185" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{logs_transaksi_timestamp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="73522a7b-4e6b-460c-a820-e04f4d6ec1e1" x="370" y="0" width="161" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Rp. "+$F{logs_transaksi_total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="197" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="12" y="27" width="87" height="16"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jumlah Transaksi :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="12" y="43" width="87" height="17"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="42dba358-97b7-4ff2-9350-ff4f1e275cfe" x="99" y="43" width="100" height="17"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{logs_transaksi_total_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7f04de30-4b0a-4893-946b-b3724b03b473" x="99" y="28" width="100" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{logs_transaksi_total_2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="406" y="24" width="40" height="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jakarta, ]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="d1b01009-13a8-4e78-ae35-17ef0cf2da1b" x="446" y="24" width="116" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="94f83048-2c25-4414-ad90-4d614a3e9d08" x="424" y="92" width="138" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["(   "+$P{user}.toString()+"   )"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="d89dd70b-7b06-43d4-858c-5d471f3c205c" x="0" y="10" width="555" height="1" forecolor="#153462"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

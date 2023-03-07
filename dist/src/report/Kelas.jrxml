@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="332f540c-f153-476c-be0a-355d183cec55">
+	<property name="ireport.zoom" value="1.771561000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="user" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     kelas_gym.`id_kelas` AS kelas_gym_id_kelas,
+     kelas_gym.`nama_kelas` AS kelas_gym_nama_kelas,
+     kelas_gym.`id_instruktur` AS kelas_gym_id_instruktur,
+     kelas_gym.`harga_sesi` AS kelas_gym_harga_sesi,
+     kelas_gym.`keterangan` AS kelas_gym_keterangan,
+     instruktur_gym.`id_instruktur` AS instruktur_gym_id_instruktur,
+     instruktur_gym.`nama_instruktur` AS instruktur_gym_nama_instruktur
+FROM
+     `kelas_gym` kelas_gym INNER JOIN `instruktur_gym` instruktur_gym ON kelas_gym.`id_instruktur` = instruktur_gym.`id_instruktur`]]>
+	</queryString>
+	<field name="kelas_gym_id_kelas" class="java.lang.String"/>
+	<field name="kelas_gym_nama_kelas" class="java.lang.String"/>
+	<field name="kelas_gym_id_instruktur" class="java.lang.String"/>
+	<field name="kelas_gym_harga_sesi" class="java.lang.Long"/>
+	<field name="kelas_gym_keterangan" class="java.lang.String"/>
+	<field name="instruktur_gym_id_instruktur" class="java.lang.String"/>
+	<field name="instruktur_gym_nama_instruktur" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="69" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="145" y="33" width="317" height="12"/>
+				<textElement>
+					<font fontName="Segoe UI" size="8"/>
+				</textElement>
+				<text><![CDATA[JL. Setu Cipayung, No. 54, , RT.2/RW.4, Cilangkap, Kec. Cipayung, Kota Jakarta Timur]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="99" y="33" width="46" height="12"/>
+				<textElement>
+					<font fontName="Segoe UI" size="8"/>
+				</textElement>
+				<text><![CDATA[ALAMAT ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d00374e6-4c97-4eb7-9540-0df8da5f9224" x="0" y="0" width="555" height="33"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI" size="20" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[SETU FITNESS CORNER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="87" y="45" width="375" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI" size="8"/>
+				</textElement>
+				<text><![CDATA[TELP  :  0812-1218-0989      -     WEBSITE  :  www.setu-fitness-corner.business.site]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="52" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" mode="Opaque" x="0" y="0" width="555" height="36" forecolor="#FFFFFF" backcolor="#153462"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CETAK INFORMASI KELAS GYM TAMBAHAN]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="39" splitType="Stretch">
+			<line>
+				<reportElement uuid="d89dd70b-7b06-43d4-858c-5d471f3c205c" x="0" y="34" width="555" height="1" forecolor="#153462"/>
+			</line>
+			<staticText>
+				<reportElement uuid="520a908b-4001-4ab8-958a-f13b5940bef4" x="0" y="0" width="55" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[ID KELAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3e13d082-55fd-481f-979b-a4df552efcb2" x="55" y="0" width="108" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[NAMA KELAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6ee37df6-16c0-4e68-b51c-626379e373bd" x="163" y="0" width="80" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[ID INSTRUKTUR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e48db220-c59e-4902-a439-a14fabfb8da3" x="243" y="0" width="108" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[NAMA INSTRUKTUR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0fd0967b-df70-4a80-8dda-5bfbc57bf6a2" x="351" y="0" width="109" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[KETERANGAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="961d82ff-3b30-4866-8383-de0bb54b0e56" x="460" y="0" width="92" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[HARGA (PERSESI)]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement uuid="1a49634d-6a78-473e-9a7a-9d37a2ee58f9" x="0" y="0" width="55" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kelas_gym_id_kelas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4e247ba9-b453-4e75-8729-7808e5d5851e" x="55" y="0" width="108" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kelas_gym_nama_kelas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8cd5b934-5b6e-4471-98f3-9d5bcfc2b0d6" x="163" y="0" width="80" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kelas_gym_id_instruktur}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b8bbdf8a-1e26-45e6-a685-9a823a0b348a" x="243" y="0" width="108" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{instruktur_gym_nama_instruktur}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1981670e-87e2-4dad-8505-f2cd7105ef8d" x="351" y="0" width="109" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{kelas_gym_keterangan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ae20ba6c-4a24-409c-a930-8ff949be9aa5" x="460" y="0" width="92" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<paragraph leftIndent="3"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Rp. "+$F{kelas_gym_harga_sesi}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="115" splitType="Stretch">
+			<line>
+				<reportElement uuid="d89dd70b-7b06-43d4-858c-5d471f3c205c" x="0" y="10" width="555" height="1" forecolor="#153462"/>
+			</line>
+			<textField>
+				<reportElement uuid="94f83048-2c25-4414-ad90-4d614a3e9d08" x="414" y="92" width="138" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["(   "+$P{user}.toString()+"   )"]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="d1b01009-13a8-4e78-ae35-17ef0cf2da1b" x="436" y="24" width="116" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="396" y="24" width="40" height="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jakarta, ]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

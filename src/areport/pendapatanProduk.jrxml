@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="332f540c-f153-476c-be0a-355d183cec55">
+	<property name="ireport.zoom" value="1.610510000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="user" class="java.lang.String"/>
+	<parameter name="periode" class="java.lang.String"/>
+	<parameter name="tahun" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+	
+	
+     logs_transaksi.`id_transaksi` AS logs_transaksi_id_transaksi,
+     logs_transaksi.`id_member` AS logs_transaksi_id_member,
+     logs_transaksi.`timestamp` AS logs_transaksi_timestamp,
+     logs_transaksi.`total` AS logs_transaksi_total,
+     logs_transaksi_detail.`id_transaksi` AS logs_transaksi_detail_id_transaksi,
+     logs_transaksi_detail.`id_barang` AS logs_transaksi_detail_id_barang,
+     logs_transaksi_detail.`kuantitas` AS logs_transaksi_detail_kuantitas,
+     logs_transaksi_detail.`total` AS logs_transaksi_detail_total,
+     produk.`id_produk` AS produk_id_produk,
+     produk.`nama_produk` AS produk_nama_produk,
+     produk.`jenis_produk` AS produk_jenis_produk,
+     produk.`harga_produk` AS produk_harga_produk,
+     produk.`stok` AS produk_stok,
+
+     SUM(LOGS_TRANSAKSI_DETAIL.TOTAL),
+	sum(logs_transaksi_detail.kuantitas)
+
+FROM
+     `logs_transaksi_detail` logs_transaksi_detail INNER JOIN `produk` produk ON logs_transaksi_detail.`id_barang` = produk.`id_produk`
+     INNER JOIN `logs_transaksi` logs_transaksi ON logs_transaksi_detail.`id_transaksi` = logs_transaksi.`id_transaksi`
+
+WHERE (month(logs_transaksi.timestamp)=$P{periode} and year(logs_transaksi.timestamp)=$P{tahun})
+
+group by logs_transaksi_detail.id_barang]]>
+	</queryString>
+	<field name="logs_transaksi_id_transaksi" class="java.lang.String"/>
+	<field name="logs_transaksi_id_member" class="java.lang.String"/>
+	<field name="logs_transaksi_timestamp" class="java.sql.Timestamp"/>
+	<field name="logs_transaksi_total" class="java.lang.Long"/>
+	<field name="logs_transaksi_detail_id_transaksi" class="java.lang.String"/>
+	<field name="logs_transaksi_detail_id_barang" class="java.lang.String"/>
+	<field name="logs_transaksi_detail_kuantitas" class="java.lang.Integer"/>
+	<field name="logs_transaksi_detail_total" class="java.lang.Long"/>
+	<field name="produk_id_produk" class="java.lang.String"/>
+	<field name="produk_nama_produk" class="java.lang.String"/>
+	<field name="produk_jenis_produk" class="java.lang.String"/>
+	<field name="produk_harga_produk" class="java.lang.Long"/>
+	<field name="produk_stok" class="java.lang.Integer"/>
+	<field name="SUM(LOGS_TRANSAKSI_DETAIL.TOTAL)" class="java.math.BigDecimal"/>
+	<field name="sum(logs_transaksi_detail.kuantitas)" class="java.math.BigDecimal"/>
+	<variable name="logs_transaksi_total_1" class="java.lang.Long" calculation="Sum">
+		<variableExpression><![CDATA[$F{logs_transaksi_total}]]></variableExpression>
+	</variable>
+	<variable name="logs_transaksi_total_2" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{logs_transaksi_total}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="69" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="145" y="33" width="317" height="12"/>
+				<textElement>
+					<font fontName="Segoe UI" size="8"/>
+				</textElement>
+				<text><![CDATA[JL. Setu Cipayung, No. 54, , RT.2/RW.4, Cilangkap, Kec. Cipayung, Kota Jakarta Timur]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="99" y="33" width="46" height="12"/>
+				<textElement>
+					<font fontName="Segoe UI" size="8"/>
+				</textElement>
+				<text><![CDATA[ALAMAT ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d00374e6-4c97-4eb7-9540-0df8da5f9224" x="0" y="0" width="555" height="33"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI" size="20" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[SETU FITNESS CORNER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="87" y="45" width="375" height="12"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI" size="8"/>
+				</textElement>
+				<text><![CDATA[TELP  :  0812-1218-0989      -     WEBSITE  :  www.setu-fitness-corner.business.site]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="109" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="5f8e19ee-25a4-4611-a01c-232704512ccd" mode="Opaque" x="0" y="36" width="555" height="54" forecolor="#153462"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" mode="Opaque" x="0" y="0" width="555" height="36" forecolor="#FFFFFF" backcolor="#153462"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LAPORAN PENDAPATAN DARI PENJUALAN PRODUK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="32" y="55" width="87" height="17"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PERIODE PENJUALAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="283" y="55" width="87" height="17"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TAHUN]]></text>
+			</staticText>
+			<textField pattern="MMMM">
+				<reportElement uuid="e79c9f37-1fac-4d52-8be2-32fa7df84254" x="121" y="57" width="100" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{periode}.toString()]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy">
+				<reportElement uuid="9ffd3ef3-0059-49f5-8dbb-43cbe0907bd1" x="376" y="57" width="100" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{tahun}.toString()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="38" splitType="Stretch">
+			<line>
+				<reportElement uuid="d89dd70b-7b06-43d4-858c-5d471f3c205c" x="0" y="26" width="555" height="1" forecolor="#153462"/>
+			</line>
+			<staticText>
+				<reportElement uuid="f8c9c56f-3503-4ba6-934f-fb94d339bc7d" x="19" y="1" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID PRODUK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="5d91c821-dfe3-4308-ad65-4c1c0c75328a" x="135" y="0" width="162" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NAMA PRODUK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29cbc977-cf26-4999-9b12-3536c0b15b15" x="297" y="0" width="95" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[JENIS PRODUK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8670f7da-982d-463e-9559-2c34adb46479" x="445" y="1" width="100" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL PENJUALAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29cbc977-cf26-4999-9b12-3536c0b15b15" x="392" y="0" width="53" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TERJUAL]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement uuid="081b3560-f354-423d-9e02-f405a6658b83" x="19" y="0" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{produk_id_produk}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b8629213-87a2-48e5-80fa-695cf8651446" x="135" y="0" width="162" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{produk_nama_produk}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="de96a40d-08c2-407e-8541-7b0c5d7e2498" x="297" y="0" width="95" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{produk_jenis_produk}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1cf07a6e-9193-485f-866d-9f6350ec95e4" x="445" y="0" width="100" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Rp. "+$F{SUM(LOGS_TRANSAKSI_DETAIL.TOTAL)}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6e6691d6-4b0e-492e-89cb-7341143cd3c2" x="392" y="0" width="40" height="20"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{sum(logs_transaksi_detail.kuantitas)}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="197" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="12" y="27" width="87" height="16"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jumlah Transaksi :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="12" y="43" width="87" height="17"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="42dba358-97b7-4ff2-9350-ff4f1e275cfe" x="99" y="43" width="100" height="17"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Rp. "+$V{logs_transaksi_total_1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="7f04de30-4b0a-4893-946b-b3724b03b473" x="99" y="28" width="100" height="15"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{logs_transaksi_total_2}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="64eed643-882b-490b-aacd-97c69898eaee" x="392" y="24" width="40" height="15"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jakarta, ]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="d1b01009-13a8-4e78-ae35-17ef0cf2da1b" x="432" y="24" width="116" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Segoe UI" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="94f83048-2c25-4414-ad90-4d614a3e9d08" x="410" y="93" width="138" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Segoe UI" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["(   "+$P{user}.toString()+"   )"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="d89dd70b-7b06-43d4-858c-5d471f3c205c" x="10" y="10" width="555" height="1" forecolor="#153462"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>
